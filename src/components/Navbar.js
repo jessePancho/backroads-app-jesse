@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "../images/backroads-logo.svg";
-import { pageLinks, socialLinks } from "../data";
+import { socialLinks } from "../data";
 import PageLinks from "./PageLinks";
+import SocialLinks from "./SocialLinks";
 
 const Navbar = () => {
   return (
@@ -16,14 +17,7 @@ const Navbar = () => {
         <PageLinks parentClass="nav-links" itemClass="nav-link" />
         <ul className="nav-icons">
           {socialLinks.map((link) => {
-            const { href, icon, id } = link;
-            return (
-              <li key={id}>
-                <a href={href} target="_blank" className="nav-icon">
-                  <i className={icon}></i>
-                </a>
-              </li>
-            );
+            return <SocialLinks key={link.id} {...link} itemClass="nav-icon" />;
           })}
         </ul>
       </div>
